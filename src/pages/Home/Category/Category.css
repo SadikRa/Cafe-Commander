@@ -24,7 +24,13 @@ body {
   background-size: cover;
   width: 300px;
   height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+h4 {
+    transition: all 0.3s ease; /* Optional: Smooth transition for effects */
+  }
 
 .swiper-slide img {
   display: block;
