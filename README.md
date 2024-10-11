@@ -11,3 +11,7 @@ Currently, two official plugins are available:
 
 
 Banner slide used swiper (https://codesandbox.io/p/devbox/swiper-react-pagination-dynamic-qjjdsg?file=%2Fsrc%2Fstyles.css)
+
+
+
+
