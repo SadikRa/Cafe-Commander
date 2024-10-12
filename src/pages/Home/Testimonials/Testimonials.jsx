@@ -9,11 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
-
   useEffect(() => {
-    fetch("/reviews.json") 
+    fetch("/reviews.json")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch reviews");
@@ -22,25 +19,10 @@ const Testimonials = () => {
       })
       .then((data) => {
         setReviews(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
       });
   }, []);
-
-  if (loading) {
-    return <p className="text-center text-2xl my-10">Loading reviews...</p>;
-  }
-
-  if (error) {
-    return <p className="text-center text-2xl text-red-500 my-10">{error}</p>;
-  }
-
   return (
     <section className="p-4">
-
       <Swiper
         pagination={{
           dynamicBullets: true,

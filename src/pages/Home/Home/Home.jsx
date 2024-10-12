@@ -37,7 +37,7 @@ const Home = () => {
 
       {/* Testimonials section */}
       <h2 className="text-4xl uppercase mt-12 lg:mt-24 text-amber-500 font-bold p-2 text-center">
-      Testimonials
+      Customer Reviews
       </h2>
       <p className="text-2xl font-bold p-2 text-center">What Our Client Say</p> 
       <Testimonials></Testimonials>
