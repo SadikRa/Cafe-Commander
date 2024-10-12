@@ -1,0 +1,11 @@
+#bgImage {
+    background-image: url('https://i.ibb.co.com/xMtShmk/food-Hand1320x600.png');
+    background-size: cover; 
+    background-position: center; 
+    width: 1320px; 
+    height: 700px; 
+    /* padding: 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
