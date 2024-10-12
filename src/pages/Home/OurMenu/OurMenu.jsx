@@ -4,8 +4,6 @@ import MenuItems from "../../../Shared/MenuItems/MenuItems";
 const OurMenu = () => {
   const [menu, setMenu] = useState([]);
 
-  console.log(menu);
-
   useEffect(() => {
     fetch("menu.json")
       .then((res) => res.json())
