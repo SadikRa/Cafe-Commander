@@ -1,6 +1,7 @@
 import Category from "../../Category/Category";
 import Banner from "../Banner/Banner";
 import Descriptions from "../Descriptions/Descriptions";
+import ImageGallery from "../ImageGallery/ImageGallery";
 import OurChef from "../OurChef/OurChef";
 import OurMenu from "../OurMenu/OurMenu";
 
@@ -21,11 +22,18 @@ const Home = () => {
         Our Menu
       </h4>
       <OurMenu></OurMenu>
-      {/* Our Chef */}
+      {/* Our Chef section*/}
       <h4 className="text-4xl mt-12 lg:mt-24 text-amber-500 font-bold p-2 text-center">
       Our Chef
       </h4>
       <OurChef></OurChef>
+
+      {/* gallery section*/}
+      <h2 className="text-4xl mt-12 lg:mt-24 text-amber-500 font-bold p-2 text-center">
+        Café Commander’s Gallery
+      </h2>
+      <ImageGallery></ImageGallery>
+
     </div>
   );
 };
