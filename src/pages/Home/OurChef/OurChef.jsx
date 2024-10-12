@@ -16,6 +16,7 @@ const OurChef = () => {
                 <ChefCard key={chef._id} chef={chef}></ChefCard>
                 </>)
             }
+            
         </div>
     );
 };
