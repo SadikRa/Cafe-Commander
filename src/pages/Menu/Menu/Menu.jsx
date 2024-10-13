@@ -11,7 +11,6 @@ const Menu = () => {
   const beverages = menu.filter((item) => item.category === "beverages");
   const offered = menu.filter((item) => item.category === "offered");
 
- 
   useEffect(() => {
     fetch("menu.json")
       .then((res) => res.json())
@@ -20,24 +19,28 @@ const Menu = () => {
   }, []);
 
   return (
-    <div>
+    <div className="p-1">
       {/* Page Title */}
       <Helmet>
         <title>Cafe Commander || Menu</title>
       </Helmet>
 
       {/* Banner Image */}
-      <div className="p-1">
+      <div className=" ">
         <img
           src="https://i.ibb.co/z4Qrmyt/rsz-menubanner.jpg"
           alt="Menu Banner"
-          className="w-full h-auto"
+          className="w-full h-[500px] md:h-[900px]"
         />
       </div>
 
       {/* Menu Categories */}
       <div className="mt-4">
-        <MenuCategory items={offered} img={'https://i.ibb.co.com/jv4KHTr/Banner3.webp'} title="Today's Special"></MenuCategory>
+        <MenuCategory
+          items={offered}
+          img={"https://i.ibb.co.com/jv4KHTr/Banner3.webp"}
+          title="Today's Special"
+        ></MenuCategory>
 
         {/* Dessert Menu */}
         <MenuCategory
