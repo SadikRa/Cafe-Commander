@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Cafe_Commander_logo1.jpg";
+import { FaAmazon, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-      <footer className="bg-amber-500 text-white py-12 mt-10">
+      <footer className="bg-amber-300 bg-opacity-50 text-white py-12 mt-10">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
           
           {/* About Section */}
@@ -34,16 +35,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4 mb-4">
               <a href="#" className="text-2xl hover:text-gray-300">
-                <i className="fab fa-facebook"></i>
+                <i className="fab fa-facebook"><FaFacebook /></i>
               </a>
               <a href="#" className="text-2xl hover:text-gray-300">
-                <i className="fab fa-instagram"></i>
+                <i className="fab fa-instagram"> <FaInstagram /></i>
               </a>
               <a href="#" className="text-2xl hover:text-gray-300">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-2xl hover:text-gray-300">
-                <i className="fab fa-yelp"></i>
+                <i className="fab fa-twitter"><FaTwitter /></i>
               </a>
             </div>
   
