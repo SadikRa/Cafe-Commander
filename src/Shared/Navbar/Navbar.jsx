@@ -4,7 +4,9 @@ import logo from "../../assets/Cafe_Commander_logo1.jpg";
 const Navbar = () => {
   const navOptions = (
     <>
-      <li><NavLink to={'/menu'}>Menu</NavLink></li>
+      <li>
+        <NavLink to={"/menu"}>Menu</NavLink>
+      </li>
     </>
   );
 

@@ -3,7 +3,7 @@
         "_id": "642c155b2c4774f05c36eeaa",
         "name": "Haddock",
         "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "image": "https://i.ibb.co.com/SvbmGbq/Salads.webp",
         "category": "salad",
         "price": 14.7
     },
@@ -27,7 +27,7 @@
         "_id": "642c155b2c4774f05c36ee88",
         "name": "Escalope de Veau",
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
+        "image": "https://i.ibb.co.com/WKzqR87/rsz-gemini-generated-image-oq2hruoq2hruoq2h.jpg",
         "category": "dessert",
         "price": 12.5
     },
@@ -123,7 +123,7 @@
         "_id": "642c155b2c4774f05c36eea4",
         "name": "Chicken and Walnut Salad",
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
+        "image": "https://i.ibb.co.com/SvbmGbq/Salads.webp",
         "category": "salad",
         "price": 13.5
     },
@@ -131,7 +131,7 @@
         "_id": "642c155b2c4774f05c36eea5",
         "name": "Fish Parmentier",
         "recipe": "Sautéed breaded veal escalope with watercress, lemon and veal jus.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-8-370x247.jpg",
+        "image": "https://i.ibb.co.com/SvbmGbq/Salads.webp",
         "category": "salad",
         "price": 9.5
     },
@@ -203,7 +203,7 @@
         "_id": "642c155b2c4774f05c36ee8d",
         "name": "Chicken and Walnut Salad",
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
+        "image": "https://i.ibb.co.com/svX4K2H/main-cake.webp",
         "category": "dessert",
         "price": 13.5
     },
@@ -211,7 +211,7 @@
         "_id": "642c155b2c4774f05c36ee8e",
         "name": "Escalope de Veau",
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
+        "image": "https://i.ibb.co.com/2FWSw5T/rsz-cake2.jpg",
         "category": "dessert",
         "price": 12.5
     },
@@ -219,7 +219,7 @@
         "_id": "642c155b2c4774f05c36eea7",
         "name": "Fish Parmentier",
         "recipe": "Sautéed breaded veal escalope with watercress, lemon and veal jus.",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-8-370x247.jpg",
+        "image": "https://i.ibb.co.com/SvbmGbq/Salads.webp",
         "category": "salad",
         "price": 9.5
     },
@@ -494,5 +494,47 @@
         "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
         "category": "beverages",
         "price": 6.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaf",
+        "name": "Spiced Grilled Chicken",
+        "recipe": "Juicy chicken breast marinated in a blend of spices, grilled to perfection and served with garlic mashed potatoes.",
+        "image": "https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg",
+        "category": "mainDish",
+        "price": 14.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee89",
+        "name": "Herb-Crusted Salmon",
+        "recipe": "Fresh salmon fillet with a crunchy herb crust, served with roasted vegetables and a lemon butter sauce.",
+        "image": "https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg",
+        "category": "mainDish",
+        "price": 18.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee8a",
+        "name": "Beef Tenderloin Steak",
+        "recipe": "Grilled tenderloin steak, served with a side of sautéed mushrooms and truffle fries.",
+        "image": "https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg",
+        "category": "mainDish",
+        "price": 22.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee96",
+        "name": "Mediterranean Lamb Chops",
+        "recipe": "Grilled lamb chops marinated in Mediterranean herbs, served with couscous and a mint yogurt dip.",
+        "image": "https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg",
+        "category": "mainDish",
+        "price": 20.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee81",
+        "name": "Creamy Mushroom Risotto",
+        "recipe": "A rich and creamy risotto made with wild mushrooms, Parmesan cheese, and fresh herbs.",
+        "image": "https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg",
+        "category": "mainDish",
+        "price": 13.0
     }
+
 ]
+
