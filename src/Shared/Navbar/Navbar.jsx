@@ -1,15 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/Cafe_Commander_logo1.jpg";
 
 const Navbar = () => {
   const navOptions = (
     <>
-      <li>
-        <a href="#">Item 1</a>
-      </li>
-      <li>
-        <a href="#">Item 3</a>
-      </li>
+      <li><NavLink to={'/menu'}>Menu</NavLink></li>
     </>
   );
 

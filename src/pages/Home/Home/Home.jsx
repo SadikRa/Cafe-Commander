@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Category from "../../Category/Category";
 import Banner from "../Banner/Banner";
 import Descriptions from "../Descriptions/Descriptions";
@@ -9,6 +10,9 @@ import Testimonials from "../Testimonials/Testimonials";
 const Home = () => {
   return (
     <div className="">
+      <Helmet>
+        <title>Cafe || Home</title>
+      </Helmet>
       <Banner></Banner>
       <Descriptions></Descriptions>
 

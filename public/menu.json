@@ -454,5 +454,45 @@
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
         "category": "soup",
         "price": 10.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaf",
+        "name": "Citrus Breeze",
+        "recipe": "A refreshing blend of fresh orange juice, lemon zest, and a hint of mint, served over ice.",
+        "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
+        "category": "beverages",
+        "price": 6.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee89",
+        "name": "Berry Blast Smoothie",
+        "recipe": "A vibrant smoothie with a mix of strawberries, blueberries, and raspberries, blended with yogurt and honey.",
+        "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
+        "category": "beverages",
+        "price": 7.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee8a",
+        "name": "Tropical Mango Fizz",
+        "recipe": "A sparkling tropical drink with mango puree, pineapple juice, and a splash of soda, garnished with lime.",
+        "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
+        "category": "beverages",
+        "price": 8.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee96",
+        "name": "Classic Iced Coffee",
+        "recipe": "Rich, freshly brewed coffee served over ice with a dash of milk and optional sweeteners.",
+        "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
+        "category": "beverages",
+        "price": 5.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36ee81",
+        "name": "Mint Lemonade",
+        "recipe": "Freshly squeezed lemonade mixed with muddled mint leaves, served chilled with ice cubes.",
+        "image": "https://i.ibb.co.com/FsDyrKR/Gemini-Generated-Image-5ybtsx5ybtsx5ybt.jpg",
+        "category": "beverages",
+        "price": 6.0
     }
 ]
