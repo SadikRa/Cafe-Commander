@@ -6,22 +6,27 @@ import FoodCard from "../FoodCard/FoodCard";
 import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const categories = [  'desserts' ,'beverages' , 'pizza','mainDish' , 'soup' , 'salad']
-  const {category} = useParams()
-  const initialIndex = categories.indexOf(category)
+  const categories = [
+    "desserts",
+    "beverages",
+    "pizza",
+    "mainDish",
+    "soup",
+    "salad",
+  ];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
-    fetch("menu.json")
+    fetch('http://localhost:5000/menu')
       .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-        setLoading(false);
-      });
+      .then((data) => setMenu(data))
+      .catch((error) => console.error("Error fetching menu:", error));
   }, []);
+
 
   const desserts = menu.filter((item) => item.category === "dessert");
   const mainDish = menu.filter((item) => item.category === "mainDish");
@@ -36,7 +41,6 @@ const Order = () => {
         <title>Cafe Commander || Order</title>
       </Helmet>
 
-
       <div className="flex justify-center items-center">
         <div
           className="hero h-[500px] md:h-[900px] w-full text-center bg-cover bg-center"
@@ -49,7 +53,6 @@ const Order = () => {
           </div>
         </div>
       </div>
-
 
       <div className="mt-12 md:mt-28">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
@@ -152,7 +155,6 @@ const Order = () => {
               ))}
             </div>
           </TabPanel>
-        
         </Tabs>
       </div>
     </div>
