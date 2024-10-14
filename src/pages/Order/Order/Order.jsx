@@ -3,11 +3,16 @@ import { Helmet } from "react-helmet-async";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import FoodCard from "../FoodCard/FoodCard";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = [  'desserts' ,'beverages' , 'pizza','mainDish' , 'soup' , 'salad']
+  const {category} = useParams()
+  const initialIndex = categories.indexOf(category)
+  const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     fetch("menu.json")
@@ -27,12 +32,11 @@ const Order = () => {
 
   return (
     <div className="p-1">
-      {/* Page Title */}
       <Helmet>
         <title>Cafe Commander || Order</title>
       </Helmet>
 
-      {/* Banner Image */}
+
       <div className="flex justify-center items-center">
         <div
           className="hero h-[500px] md:h-[900px] w-full text-center bg-cover bg-center"
@@ -46,7 +50,7 @@ const Order = () => {
         </div>
       </div>
 
-      {/* Tabs Section */}
+
       <div className="mt-12 md:mt-28">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="flex flex-wrap border-b-2 border-gray-200">
@@ -106,7 +110,6 @@ const Order = () => {
             </Tab>
           </TabList>
 
-          {/* Responsive TabPanel content */}
           <TabPanel className="p-4 sm:p-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {desserts.map((item) => (
@@ -149,7 +152,7 @@ const Order = () => {
               ))}
             </div>
           </TabPanel>
-          {/* Repeat for the other categories */}
+        
         </Tabs>
       </div>
     </div>

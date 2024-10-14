@@ -45,7 +45,7 @@ const Menu = () => {
         {/* Dessert Menu */}
         <MenuCategory
           items={desserts}
-          title="Desserts"
+          title="desserts"
           img="https://i.ibb.co/svX4K2H/main-cake.webp"
         ></MenuCategory>
 
@@ -59,14 +59,14 @@ const Menu = () => {
         {/* Salad Menu */}
         <MenuCategory
           items={salad}
-          title="Salad"
+          title="salad"
           img="https://i.ibb.co.com/SvbmGbq/Salads.webp"
         ></MenuCategory>
 
         {/* mainDish Menu */}
         <MenuCategory
           items={mainDish}
-          title="Main Dish"
+          title="mainDish"
           img="https://i.ibb.co.com/xg3BhTC/Gemini-Generated-Image-4xtikn4xtikn4xti.jpg"
         ></MenuCategory>
 
