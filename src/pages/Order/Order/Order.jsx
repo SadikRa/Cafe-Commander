@@ -2,22 +2,28 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import FoodCard from "../FoodCard/FoodCard";
 
 const Order = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [menu, setMenu] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("menu.json")
       .then((res) => res.json())
-      .then((data) => setMenu(data));
+      .then((data) => {
+        setMenu(data);
+        setLoading(false);
+      });
   }, []);
 
   const desserts = menu.filter((item) => item.category === "dessert");
   const mainDish = menu.filter((item) => item.category === "mainDish");
   const salad = menu.filter((item) => item.category === "salad");
   const beverages = menu.filter((item) => item.category === "beverages");
-  const offered = menu.filter((item) => item.category === "offered");
+  const pizza = menu.filter((item) => item.category === "pizza");
+  const soup = menu.filter((item) => item.category === "soup");
 
   return (
     <div className="p-1">
@@ -27,12 +33,11 @@ const Order = () => {
       </Helmet>
 
       {/* Banner Image */}
-
       <div className="flex justify-center items-center">
         <div
-          className="hero h-[500px] md:h-[900px] w-full text-center "
+          className="hero h-[500px] md:h-[900px] w-full text-center bg-cover bg-center"
           style={{
-            backgroundImage: "url(https://i.ibb.co.com/9ypV4Zk/soup.webp)",
+            backgroundImage: "url(https://i.ibb.co/9ypV4Zk/soup.webp)", // fixed link
           }}
         >
           <div className="bg-black bg-opacity-40 p-12 rounded shadow-md">
@@ -41,9 +46,9 @@ const Order = () => {
         </div>
       </div>
 
+      {/* Tabs Section */}
       <div className="mt-12 md:mt-28">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          {/* Responsive TabList */}
           <TabList className="flex flex-wrap border-b-2 border-gray-200">
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
@@ -54,7 +59,6 @@ const Order = () => {
             >
               Dessert
             </Tab>
-
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
                 tabIndex === 1
@@ -64,7 +68,6 @@ const Order = () => {
             >
               Beverages
             </Tab>
-
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
                 tabIndex === 2
@@ -74,7 +77,6 @@ const Order = () => {
             >
               Pizza
             </Tab>
-
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
                 tabIndex === 3
@@ -84,7 +86,6 @@ const Order = () => {
             >
               Main Dish
             </Tab>
-
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
                 tabIndex === 4
@@ -94,7 +95,6 @@ const Order = () => {
             >
               Soup
             </Tab>
-
             <Tab
               className={`px-2 py-1 sm:px-4 sm:py-2 cursor-pointer transition-colors text-sm md:text-base ${
                 tabIndex === 5
@@ -108,23 +108,48 @@ const Order = () => {
 
           {/* Responsive TabPanel content */}
           <TabPanel className="p-4 sm:p-6">
-            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-gray-800">
-              Content for Dessert
-            </h2>
-            <p className="text-gray-600">
-              This is the content of the first tab. You can customize it as
-              needed.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {desserts.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
           </TabPanel>
           <TabPanel className="p-4 sm:p-6">
-            <h2 className="text-lg sm:text-2xl font-bold mb-4 text-gray-800">
-              Content for Beverages
-            </h2>
-            <p className="text-gray-600">
-              This is the content of the second tab. Style it as you wish!
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {beverages.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
           </TabPanel>
-          {/* Add additional TabPanels as needed */}
+          <TabPanel className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {pizza.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {mainDish.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {soup.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {salad.map((item) => (
+                <FoodCard key={item._id} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+          {/* Repeat for the other categories */}
         </Tabs>
       </div>
     </div>
