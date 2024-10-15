@@ -57,12 +57,12 @@ const Navbar = () => {
 
         {/* Button on the right side with the requested styles */}
         <div className="navbar-end">
-          <a
+          <Link to={'/login'}
             className="btn bg-amber-500 hover:bg-amber-600 text-white"
             href="#"
           >
-            Order Now
-          </a>
+            Login
+          </Link>
         </div>
       </div>
     </div>
