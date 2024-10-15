@@ -8,8 +8,8 @@ const Register = () => {
     const name = target.name.value;
     const email = target.email.value;
     const password = target.password.value;
-    const data = {name, email, password}
-    console.log(data)
+    const data = { name, email, password };
+    console.log(data);
   };
   return (
     <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -36,8 +36,8 @@ const Register = () => {
               <input
                 type="name"
                 name="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="Enter your email"
+                className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                placeholder="Type your Name"
               />
             </div>
             <div className="mb-6">
@@ -47,7 +47,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
@@ -58,7 +58,7 @@ const Register = () => {
               <input
                 type="password"
                 name="password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                 placeholder="Enter your password"
               />
             </div>

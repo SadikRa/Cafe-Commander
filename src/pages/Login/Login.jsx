@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
 
 const Login = () => {
+  const captchaRef = useRef(null);
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const target = e.target;
     const email = target.email.value;
     const password = target.password.value;
-    const data = {email, password}
-    console.log(data)
+    const data = { email, password };
+    console.log(data);
+  };
+
+  const handleValidateCaptcha = () => {
+    const value = captchaRef.current.value;
+    console.log(value)
   };
   return (
     <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -35,7 +52,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-4 py-3 border text-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                 placeholder="Enter your email"
               />
             </div>
@@ -46,7 +63,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="w-full px-4 py-3 border text-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                 placeholder="Enter your password"
               />
             </div>
@@ -55,6 +72,30 @@ const Login = () => {
                 Forgot Password?
               </a>
             </div>
+
+            <div className="flex flex-col space-y-1 mb-2">
+              <div className="flex items-center space-x-4">
+                <div className="bg-gray-100 p-1 rounded-lg shadow-sm">
+                  <LoadCanvasTemplate />
+                </div>
+
+                <button
+                  onClick={handleValidateCaptcha}
+                  className="btn btn-outline btn-xs hover:bg-amber-500 text-sm  border border-amber-500 hover:text-white  rounded-lg transition duration-300"
+                >
+                  Validate
+                </button>
+              </div>
+
+              <input
+                type="text"
+                name="captcha"
+                ref={captchaRef}
+                className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                placeholder="Type the captcha"
+              />
+            </div>
+
             <input
               type="submit"
               className="w-full bg-amber-500 text-white py-3 rounded-lg shadow-lg hover:bg-amber-600 transition-all duration-300"
