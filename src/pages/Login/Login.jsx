@@ -12,7 +12,7 @@ const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
 
-  const { logIn } = useContext(AuthContext);
+  const { logIn, loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -23,15 +23,16 @@ const Login = () => {
     const target = e.target;
     const email = target.email.value;
     const password = target.password.value;
-    const data = { email, password };
 
     logIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then((userCredential) => {
+        setLoading(false);
+        console.log(userCredential)
+        return userCredential;
       })
-      .then((error) => {
-        console.log(error);
+      .catch((error) => {
+        setLoading(false);
+        console.error("Login failed:", error);
       });
   };
 
