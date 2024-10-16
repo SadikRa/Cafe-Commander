@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const captchaRef = useRef(null);
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -25,7 +26,22 @@ const Login = () => {
 
   const handleValidateCaptcha = () => {
     const value = captchaRef.current.value;
-    console.log(value)
+    if (validateCaptcha(value) == true) {
+      setDisabled(false);
+      Swal.fire({
+        title: "success!",
+        text: "Captcha Matched",
+        icon: "success",
+        confirmButtonText: "Ahh",
+      });
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Captcha Does Not Match",
+        icon: "error",
+        confirmButtonText: "Ahh",
+      });
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -98,8 +114,11 @@ const Login = () => {
 
             <input
               type="submit"
-              className="w-full bg-amber-500 text-white py-3 rounded-lg shadow-lg hover:bg-amber-600 transition-all duration-300"
-              value="login"
+              disabled={disabled}
+              className={`btn btn-ghost w-full bg-amber-500 text-white py-3 rounded-lg shadow-lg hover:bg-amber-600 transition-all duration-300 ${
+                disabled ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              value="Login"
             />
           </form>
           <div className="mt-6 text-center">
