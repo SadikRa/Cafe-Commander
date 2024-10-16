@@ -1,12 +1,13 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext,  useEffect, useState } from "react";
 
 export const AuthContext = createContext()
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth/cordova";
+const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
-    const auth = getAuth(app);
+
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true)
 
@@ -26,14 +27,17 @@ const AuthProvider = ({children}) => {
     }
 
     useEffect(() => {
-            const unSubscribe = onAuthStateChanged((auth, currentUser) =>{
-                setUser(currentUser);
-                setLoading(false)
-            });
-            return () => {
-                return unSubscribe();
-            }
-    }, [])
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+        
+        
+        return () => {
+            unSubscribe(); 
+        };
+    }, []);
+    
 
     const authInfo = {
         user,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   loadCaptchaEnginge,
@@ -6,10 +6,13 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
+
+  const { logIn } = useContext(AuthContext);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -21,7 +24,15 @@ const Login = () => {
     const email = target.email.value;
     const password = target.password.value;
     const data = { email, password };
-    console.log(data);
+
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
 
   const handleValidateCaptcha = () => {
@@ -125,7 +136,7 @@ const Login = () => {
             <p>
               Don't have an account?{" "}
               <Link to={"/register"} className="text-amber-500 hover:underline">
-                Sign Up
+                Register
               </Link>
             </p>
           </div>
