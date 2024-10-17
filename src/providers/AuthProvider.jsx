@@ -1,7 +1,7 @@
 import { createContext,  useEffect, useState } from "react";
 
 export const AuthContext = createContext()
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth/cordova";
 const auth = getAuth(app);
@@ -27,6 +27,13 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
+    const updateUseProfile = (name , photoUrl) => {
+       return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photoUrl
+          })
+          
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -47,6 +54,7 @@ const AuthProvider = ({children}) => {
         createUser,
         logIn,
         logOut,
+        updateUseProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
@@ -9,11 +9,13 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
+  const navigate  = useNavigate()
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUseProfile } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -28,6 +30,20 @@ const Register = () => {
             confirmButtonText: "yahoo",
           });
         }
+        updateUseProfile(data.name, data.photoUrl)
+        .then(() => {
+          console.log('user profile updated')
+          reset()
+          Swal.fire({
+            title: "success!",
+            text: "user profile updated",
+            icon: "success",
+            confirmButtonText: "yahoo",
+          });
+          navigate('/')
+        }).catch((error) => {
+          console.log(error)
+        });
       })
       .then((error) => {
         console.log(error);
@@ -92,6 +108,25 @@ const Register = () => {
                   </span>
                 )}
               </div>
+
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold mb-2">
+                  Photo Url
+                </label>
+                <input
+                  type="text"
+                  name="photoUrl"
+                  {...register("photoUrl", { required: true })}
+                  className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="Give your photoUrl Link"
+                />
+                {errors.photoUrl && (
+                  <span className="text-red-500 text-sm font-medium">
+                    This field is required
+                  </span>
+                )}
+              </div>
+
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   Email

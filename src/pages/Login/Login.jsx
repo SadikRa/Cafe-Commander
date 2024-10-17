@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -11,8 +11,12 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
-  const [captchaValue, setCaptchaValue] = useState(""); 
-  const { logIn, loading, setLoading } = useContext(AuthContext);
+  const [captchaValue, setCaptchaValue] = useState("");
+  const { logIn, setLoading } = useContext(AuthContext);
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -35,7 +39,7 @@ const Login = () => {
             confirmButtonText: "yahoo",
           });
         }
-        return userCredential;
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setLoading(false);
@@ -53,7 +57,7 @@ const Login = () => {
         confirmButtonText: "Yahoo",
       });
     } else {
-      setDisabled(true); 
+      setDisabled(true);
       Swal.fire({
         title: "Error!",
         text: "Captcha Does Not Match",
@@ -121,7 +125,7 @@ const Login = () => {
 
                   <button
                     type="button"
-                    onClick={handleValidateCaptcha} 
+                    onClick={handleValidateCaptcha}
                     className="btn btn-outline btn-xs hover:bg-amber-500 text-sm  border border-amber-500 hover:text-white  rounded-lg transition duration-300"
                   >
                     Validate
