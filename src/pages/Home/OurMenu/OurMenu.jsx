@@ -5,10 +5,10 @@ const OurMenu = () => {
   const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    fetch("menu.json")
+    fetch("http://localhost:5000/menu")
       .then((res) => res.json())
       .then((data) => {
-        const popularItem = data.filter((item) => item.category === "popular");
+        const popularItem = data.filter((item) => item.category === "dessert");
         setMenu(popularItem);
       });
   }, []);
