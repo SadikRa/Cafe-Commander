@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   loadCaptchaEnginge,
@@ -10,9 +10,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
-
+  const [captchaValue, setCaptchaValue] = useState(""); 
   const { logIn, loading, setLoading } = useContext(AuthContext);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const Login = () => {
     logIn(email, password)
       .then((userCredential) => {
         setLoading(false);
-        console.log(userCredential);
         if (userCredential.user) {
           Swal.fire({
             title: "success!",
@@ -46,16 +44,16 @@ const Login = () => {
   };
 
   const handleValidateCaptcha = () => {
-    const value = captchaRef.current.value;
-    if (validateCaptcha(value) == true) {
+    if (validateCaptcha(captchaValue)) {
       setDisabled(false);
       Swal.fire({
-        title: "success!",
+        title: "Success!",
         text: "Captcha Matched",
         icon: "success",
-        confirmButtonText: "yahoo",
+        confirmButtonText: "Yahoo",
       });
     } else {
+      setDisabled(true); 
       Swal.fire({
         title: "Error!",
         text: "Captcha Does Not Match",
@@ -64,17 +62,18 @@ const Login = () => {
       });
     }
   };
+
   return (
     <div>
       <Helmet>
-        <title>Cafe || login </title>
+        <title>Cafe || Login</title>
       </Helmet>
       <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row max-w-4xl w-full shadow-lg rounded-lg overflow-hidden">
           <div
             className="hidden md:block md:w-1/2 bg-cover bg-center"
             style={{
-              backgroundImage: "url('https://i.ibb.co.com/HCmn45X/loginp.jpg')",
+              backgroundImage: "url('https://i.ibb.co/HCmn45X/loginp.jpg')",
             }}
           ></div>
 
@@ -121,7 +120,8 @@ const Login = () => {
                   </div>
 
                   <button
-                    onClick={handleValidateCaptcha}
+                    type="button"
+                    onClick={handleValidateCaptcha} 
                     className="btn btn-outline btn-xs hover:bg-amber-500 text-sm  border border-amber-500 hover:text-white  rounded-lg transition duration-300"
                   >
                     Validate
@@ -131,7 +131,7 @@ const Login = () => {
                 <input
                   type="text"
                   name="captcha"
-                  ref={captchaRef}
+                  onChange={(e) => setCaptchaValue(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   placeholder="Type the captcha"
                 />
