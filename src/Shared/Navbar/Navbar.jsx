@@ -1,14 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/Cafe_Commander_logo1.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {})
+    .catch(error => console.log(error))
+  };
+
   const navOptions = (
     <>
       <li>
         <NavLink to={"/menu"}>Menu</NavLink>
       </li>
       <li>
-      <NavLink to={"/order/desserts"}>Order</NavLink>
+        <NavLink to={"/order/desserts"}>Order</NavLink>
       </li>
     </>
   );
@@ -57,12 +67,23 @@ const Navbar = () => {
 
         {/* Button on the right side with the requested styles */}
         <div className="navbar-end">
-          <Link to={'/login'}
-            className="btn bg-amber-500 hover:bg-amber-600 text-white"
-            href="#"
-          >
-            Login
-          </Link>
+          {user ? (
+            <Link
+              onClick={() => handleLogOut()}
+              className="btn bg-amber-500 hover:bg-amber-600 text-white"
+              href="#"
+            >
+              LogOut
+            </Link>
+          ) : (
+            <Link
+              to={"/login"}
+              className="btn bg-amber-500 hover:bg-amber-600 text-white"
+              href="#"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ const Menu = () => {
     <div className="p-1">
       {/* Page Title */}
       <Helmet>
-        <title>Cafe Commander || Menu</title>
+        <title>Cafe || Menu</title>
       </Helmet>
 
       {/* Banner Image */}

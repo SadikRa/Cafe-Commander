@@ -38,7 +38,7 @@ const Order = () => {
   return (
     <div className="p-1">
       <Helmet>
-        <title>Cafe Commander || Order</title>
+        <title>Cafe || Order</title>
       </Helmet>
 
       <div className="flex justify-center items-center">
