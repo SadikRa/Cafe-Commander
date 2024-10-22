@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const FoodCard = ({ item }) => {
     const { name, image, price, recipe, _id } = item;
@@ -18,8 +19,20 @@ const FoodCard = ({ item }) => {
                     image,
                     price
                 }
+                axios.post('http://localhost:5000/carts', cartItem)
+                .then(res => {
+                    if(res.data.insertedId){
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: `${name} added done`,
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                    }
+                })
         }
-        
+
         else{
             Swal.fire({
                 title: "Your are not login at this time",
