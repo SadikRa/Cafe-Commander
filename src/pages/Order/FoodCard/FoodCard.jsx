@@ -11,8 +11,15 @@ const FoodCard = ({ item }) => {
     
     const handleAddToCart = () => {
         if(user && user.email){
-
+                const cartItem = {
+                    menuId: _id ,
+                    email: user.email,
+                    name, 
+                    image,
+                    price
+                }
         }
+        
         else{
             Swal.fire({
                 title: "Your are not login at this time",
