@@ -4,9 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Badge from 'react-badges';
 import { FaCartPlus } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart ] = useCart()
 
   const handleLogOut = () => {
     logOut()
@@ -26,7 +28,7 @@ const Navbar = () => {
         <NavLink className='flex justify-center items-center' to={"/badge"}>
         <FaCartPlus className="mr-1" />
         <span className="bg-red-500 text-white p-1 rounded-full text-sm">
-        <Badge  type="error">100</Badge> 
+        <Badge  type="error">+{cart.length}</Badge> 
         </span>
         
         </NavLink>
