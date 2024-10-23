@@ -25,6 +25,9 @@ const Navbar = () => {
         <NavLink to={"/order/desserts"}>Order</NavLink>
       </li>
       <li>
+        <NavLink to={"/contact"}>Contact Us</NavLink>
+      </li>
+      <li>
         <NavLink className='flex justify-center items-center' to={"/badge"}>
         <FaCartPlus className="mr-1" />
         <span className="bg-red-500 text-white p-1 rounded-full text-sm">
