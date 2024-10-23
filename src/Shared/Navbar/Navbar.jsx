@@ -28,7 +28,7 @@ const Navbar = () => {
         <NavLink to={"/contact"}>Contact Us</NavLink>
       </li>
       <li>
-        <NavLink className='flex justify-center items-center' to={"/badge"}>
+        <NavLink className='flex justify-center items-center' to={"/dashBoard/cart"}>
         <FaCartPlus className="mr-1" />
         <span className="bg-red-500 text-white p-1 rounded-full text-sm">
         <Badge  type="error">+{cart.length}</Badge> 
