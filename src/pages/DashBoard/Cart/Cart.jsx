@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Cart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const axiosSecure = useAxiosSecure();
 
@@ -28,6 +28,7 @@ const Cart = () => {
                     text: "Your file has been deleted.",
                     icon: "success"
                   });
+                  refetch()
             }
         })
       }
