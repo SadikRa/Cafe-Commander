@@ -11,6 +11,7 @@ import { MdContactPhone } from "react-icons/md";
 
 const DashBoard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isAdmin = true;
 
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);

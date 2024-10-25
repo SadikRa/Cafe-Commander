@@ -19,10 +19,9 @@ const SocialLogin = () => {
           name: user?.displayName,
           image: user?.photoURL,
         };
-        console.log("sadik", userInfo);
         axiosPublic.post("/user", userInfo).then((res) => {
           navigate("/");
-          if (res.data.accessToken) {
+          if (res.data.insertedId) {
             Swal.fire({
               title: "success!",
               text: "user profile updated",
