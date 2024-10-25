@@ -8,6 +8,7 @@ import {
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -150,6 +151,10 @@ const Login = () => {
                 value="Login"
               />
             </form>
+
+            <div className="mt-6 flex items-center justify-center text-center">
+                  <SocialLogin></SocialLogin>
+            </div>
             <div className="mt-6 text-center">
               <p>
                 Don't have an account?{" "}
