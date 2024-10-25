@@ -8,12 +8,14 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-  GoogleAuthProvider 
+  GoogleAuthProvider,
+  GithubAuthProvider 
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth/cordova";
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
@@ -31,6 +33,10 @@ const AuthProvider = ({ children }) => {
   const GoogleLogin = () => {
    return signInWithPopup(auth, provider);
   };
+
+  const gitHubLogin = () => {
+    return signInWithPopup(auth, githubProvider)
+  }
 
   const logOut = () => {
     setLoading(true);
@@ -63,7 +69,8 @@ const AuthProvider = ({ children }) => {
     logIn,
     logOut,
     updateUseProfile,
-    GoogleLogin
+    GoogleLogin,
+    gitHubLogin
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
