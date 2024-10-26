@@ -28,6 +28,92 @@ const DashBoard = () => {
       >
         <h2 className="text-white text-2xl font-bold mb-4 p-4">Cafe Commander Dashboard</h2>
         <ul className="space-y-4 p-4 lg:pl-8 lg:pt-8">
+
+          {isAdmin ? <>
+            <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/adminHome"}
+          >
+            <FaHome />
+            <li>Admin Home</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/addItems"}
+          >
+            <FaCartPlus className="mr-1" />
+            <li>add items</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/manageItems"}
+          >
+            <FaRegCalendarAlt />
+            <li>Manage items</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/manageBooking"}
+          >
+            <MdReviews />
+            <li>Manage bookings</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/allUsers"}
+          >
+            <TbBrandBooking />
+            <li>All users</li>
+          </NavLink>
+
+          </> 
+            :
+             <>
+              <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/userHome"}
+          >
+            <FaHome />
+            <li>User Home</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/cart"}
+          >
+            <FaCartPlus className="mr-1" />
+            <li>My Cart</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/reservation"}
+          >
+            <FaRegCalendarAlt />
+            <li>Reservation</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/review"}
+          >
+            <MdReviews />
+            <li>Add Review</li>
+          </NavLink>
+
+          <NavLink
+            className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
+            to={"/dashboard/booking"}
+          >
+            <TbBrandBooking />
+            <li>My Booking</li>
+          </NavLink>
+             
+             </>}
           <NavLink
             className="flex items-center gap-3 text-white hover:text-amber-500 transition-colors"
             to={"/dashboard/userHome"}
@@ -68,6 +154,7 @@ const DashBoard = () => {
             <li>My Booking</li>
           </NavLink>
 
+          {/*divider  */}
           <div className="divider border-t-2 border-gray-200"></div>
 
           <NavLink
