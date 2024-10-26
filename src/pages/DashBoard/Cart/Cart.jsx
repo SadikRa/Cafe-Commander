@@ -37,7 +37,11 @@ const Cart = () => {
   return (
     <div className="sm:p-1">
       <div className="relative w-full max-w-5xl bg-white shadow-lg rounded-lg p-8 mx-auto mt-10">
+      <div className="flex justify-center items-center my-5">
+       <h1 className="text-4xl text-amber-500">WANNA ADD MORE?</h1>
+       </div>
         {/* Cart Summary Section */}
+
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4 sm:mb-0">
             Items: {cart.length}

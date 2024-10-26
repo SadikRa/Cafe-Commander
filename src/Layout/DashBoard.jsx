@@ -2,12 +2,23 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { FaCartPlus, FaHome, FaRegCalendarAlt, FaStream, FaUtensils } from "react-icons/fa";
+import {
+  FaCartPlus,
+  FaHome,
+  FaRegCalendarAlt,
+  FaStream,
+  FaUtensils,
+} from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import { HiMenu } from "react-icons/hi";
-import { FaBagShopping, FaBookBookmark, FaRegCircleUser } from "react-icons/fa6";
+import {
+  FaBagShopping,
+  FaBookBookmark,
+  FaRegCircleUser,
+} from "react-icons/fa6";
 import { MdContactPhone } from "react-icons/md";
+import { IoMenu } from "react-icons/io5";
 
 const DashBoard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -145,7 +156,7 @@ const DashBoard = () => {
           className="mb-4 btn bg-amber-500 hover:bg-amber-600 text-white"
           onClick={toggleDrawer}
         >
-          Open Side Nav
+          <IoMenu  className="text-2xl"/>
         </button>
         <Outlet />
       </div>
