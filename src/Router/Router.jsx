@@ -9,6 +9,8 @@ import Contact from "../pages/Contact/Contact";
 import DashBoard from "../Layout/DashBoard";
 import Cart from "../pages/DashBoard/Cart/Cart";
 import PrivateRoute from "./PrivateRoute";
+import AddItems from "../pages/DashBoard/AddItems/AddItems";
+import AllUsers from "../pages/DashBoard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +45,46 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashBoard",
-    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashBoard/cart",
         element: <Cart></Cart>,
       },
+
+      // admin route
+
+      {
+        path: "/dashBoard/addItems",
+        element: <AddItems></AddItems>,
+      },
+      {
+        path: "/dashBoard/users",
+        element: <AllUsers></AllUsers>,
+      },
+
+      // admin only routes
+      // {
+      //   path: 'addItems',
+      //   element: <AdminRoute><AddItems></AddItems></AdminRoute>
+      // },
+      // {
+      //   path: 'manageItems',
+      //   element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+      // },
+      // {
+      //   path: 'updateItem/:id',
+      //   element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+      //   loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+      // },
+      // {
+      //   path: 'users',
+      //   element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      // }
     ],
   },
 ]);
