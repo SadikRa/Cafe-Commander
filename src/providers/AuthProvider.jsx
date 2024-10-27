@@ -9,10 +9,11 @@ import {
   signOut,
   updateProfile,
   GoogleAuthProvider,
-  GithubAuthProvider 
+  GithubAuthProvider,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth/cordova";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -20,6 +21,7 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -31,12 +33,12 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const GoogleLogin = () => {
-   return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider);
   };
 
   const gitHubLogin = () => {
-    return signInWithPopup(auth, githubProvider)
-  }
+    return signInWithPopup(auth, githubProvider);
+  };
 
   const logOut = () => {
     setLoading(true);
@@ -53,6 +55,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
+      if (currentUser) {
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access_token", res.data.token);
+          }
+        });
+      } else {
+        localStorage.removeItem('access_token')
+      }
       setLoading(false);
     });
 
@@ -70,7 +83,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     updateUseProfile,
     GoogleLogin,
-    gitHubLogin
+    gitHubLogin,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
